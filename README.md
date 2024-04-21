@@ -68,3 +68,48 @@ INSERT INTO users (username, password_hash, email, role) VALUES
 
 
 ```
+
+# GOLANG APP
+### RUN the main / run the go project
+```bash
+go build -o my-app main.go
+```
+### and how to run the main.go
+```bash
+./my-app
+```
+
+### Curl localhost and testing
+```bash
+curl http://localhost:8080
+```
+
+### cara nge curl + query
+```bash
+curl "http://localhost:8080/converdolartorp?rupiah=30000.0"
+```
+
+### cara nge curl + query html
+```bash
+curl "http://localhost:8080/scraphtml?url=https://github.com/nunutech40/go-scraping"
+```
+
+## GO MOD
+* Go Mod digunakan untuk manajemen dependency pada project Go
+
+### Cara menambahkan Go MOD Init
+```bash
+go mod init github.com/nunutech40/go-scraping
+```
+
+* Setelah ada file go.mod, build atau perbarui file executable myapp menggunakan
+```bash
+go build -o myapp
+```
+
+### cara import path modulenya
+```go
+import "github.com/nunutech40/go-scraping/handlers"
+```
+
+

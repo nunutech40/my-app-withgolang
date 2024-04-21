@@ -1,21 +1,19 @@
 package main
 
 import (
-	"fmt"
+	"github.com/nunutech40/my-app-withgolang/handlers"
 	"log"
 	"net/http"
 )
 
-// only testing hello world for connection
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World")
-}
-
 func main() {
 
-	http.HandleFunc("/", helloWorld)
+	// Routing here
+	http.HandleFunc("/", handlers.HelloWorld)
 
+	// starting server
 	log.Println("Starting server on port 8080...")
+	// listening server
 	err := http.ListenAndServe(":8080", nil) // get error dari listen tcp ports 8080, jika error nil, berarti server tidak error
 	if err != nil {                          // jika error tidak nil, berarti servernya error
 		log.Fatal("Listen and server: ", err)

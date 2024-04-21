@@ -84,7 +84,7 @@ go build -o my-app main.go
 curl http://localhost:8080
 ```
 
-### cara nge curl + query
+### cara nge curl + query - ini contoh silahkan nanti diganti
 ```bash
 curl "http://localhost:8080/converdolartorp?rupiah=30000.0"
 ```
@@ -99,17 +99,17 @@ curl "http://localhost:8080/scraphtml?url=https://github.com/nunutech40/go-scrap
 
 ### Cara menambahkan Go MOD Init
 ```bash
-go mod init github.com/nunutech40/go-scraping
+go mod init github.com/nunutech40/my-app-withgolang
 ```
 
 * Setelah ada file go.mod, build atau perbarui file executable myapp menggunakan
 ```bash
-go build -o myapp
+go build -o my-app
 ```
 
 ### cara import path modulenya
 ```go
-import "github.com/nunutech40/go-scraping/handlers"
+import "github.com/nunutech40/my-app-withgolang/handlers"
 ```
 
 

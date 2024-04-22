@@ -18,6 +18,7 @@ func main() {
 
 	// Routing here
 	http.HandleFunc("/", handlers.HelloWorld)
+	
 	// auth routing
 	http.HandleFunc("/register", authHandler.Register)
 

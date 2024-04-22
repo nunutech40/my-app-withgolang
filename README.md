@@ -113,3 +113,10 @@ import "github.com/nunutech40/my-app-withgolang/handlers"
 ```
 
 
+
+# Here The Dependencies
+
+## bycrpt -> for encyrcp hash password
+```bash
+go get -u golang.org/x/crypto/bcrypt
+```

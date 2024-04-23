@@ -1,11 +1,12 @@
 package main
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/nunutech40/my-app-withgolang/common/config"
 	"github.com/nunutech40/my-app-withgolang/handlers"
 	"github.com/nunutech40/my-app-withgolang/handlers/auth"
-	"log"
-	"net/http"
 )
 
 func main() {
@@ -14,13 +15,17 @@ func main() {
 
 	// Injection
 	// Inject auth with db
-	authHandler := auth.NewHandler(db)
+	handlers := handlers.NewHandler(db)
 
-	// Routing here
-	http.HandleFunc("/", handlers.HelloWorld)
-	
 	// auth routing
-	http.HandleFunc("/register", authHandler.Register)
+	// register
+	http.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
+		auth.Register(handlers, w, r)
+	})
+	// login
+	http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
+		auth.Login(handlers, w, r)
+	})
 
 	// starting server
 	log.Println("Starting server on port 8080...")

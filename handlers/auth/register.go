@@ -1,23 +1,15 @@
 package auth
 
 import (
-	"database/sql"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/nunutech40/my-app-withgolang/common/response"
+	"github.com/nunutech40/my-app-withgolang/handlers"
 	"golang.org/x/crypto/bcrypt"
 )
-
-type Handler struct { // handler can call Register
-	DB *sql.DB
-}
-
-func NewHandler(db *sql.DB) *Handler { // this return Handler
-	return &Handler{DB: db}
-}
 
 // Struct for get body
 type User struct {
@@ -26,7 +18,7 @@ type User struct {
 	Email    string `json:"email"`
 }
 
-func (h *Handler) Register(w http.ResponseWriter, r *http.Request) { // with (h *Handler), kita bisa call Register dari struct handler
+func Register(h *handlers.Handler, w http.ResponseWriter, r *http.Request) { // with (h *Handler), kita bisa call Register dari struct handler
 
 	// check the method use POST for register
 	if r.Method != http.MethodPost {
